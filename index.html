@@ -1,0 +1,2464 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#e9f1eb">
+<meta name="description" content="Mrs. GREEN APPLEの曲を、歌詞の系統（A〜D）から選べる個人用リスト。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%232d6f4c'/%3E%3C/svg%3E">
+<title>Mrs. GREEN APPLE 歌詞で選ぶ曲リスト</title>
+<style>
+:root{color-scheme:light;
+--bg:#f1f5ef;--ink:#1f3a2d;--muted:#4c6656;--line:#c9dccd;--accent:#2d6f4c;--focus:#18523a;--gutter:16px;
+--A:#2d6648;--At:#e4f0e8;--Am:#9cc4ab;
+--B:#6c5828;--Bt:#f5efdf;--Bm:#cdb987;
+--C:#35686d;--Ct:#e4f1f1;--Cm:#9bc5c8;
+--D:#62507f;--Dt:#ece7f4;--Dm:#b3a1ca;
+--serif:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Noto Sans JP",system-ui,sans-serif;font-weight:400;line-height:1.65;touch-action:manipulation;overflow-wrap:break-word}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(60% 38% at 92% 0%,rgba(192,218,192,.5),transparent 70%),radial-gradient(70% 42% at 0% 22%,rgba(206,224,180,.45),transparent 70%),radial-gradient(60% 40% at 100% 88%,rgba(197,222,210,.4),transparent 70%),linear-gradient(#f8faf5,#e9f1eb)}
+main{max-width:720px;margin:0 auto;padding:calc(28px + env(safe-area-inset-top,0px)) calc(var(--gutter) + env(safe-area-inset-right,0px)) calc(56px + env(safe-area-inset-bottom,0px)) calc(var(--gutter) + env(safe-area-inset-left,0px))}
+header{margin-bottom:22px}
+.eyebrow{margin:0;color:var(--muted);font-size:12px;letter-spacing:.18em}
+h1{margin:6px 0 10px;font-family:var(--serif);font-size:clamp(21px,6vw,28px);line-height:1.5;font-weight:400;letter-spacing:.08em;color:var(--ink);word-break:auto-phrase;text-wrap:balance}
+.intro{margin:0;color:var(--muted);font-size:13px;letter-spacing:.03em;line-height:1.75}
+h2{margin:0;font-size:13px;font-weight:400;letter-spacing:.12em;color:var(--muted);white-space:nowrap}
+button,a{-webkit-tap-highlight-color:transparent}
+button{font:inherit;cursor:pointer}
+.panel{background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.92);border-radius:22px;padding:16px;box-shadow:0 10px 32px rgba(56,110,77,.14);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{padding:0;margin-bottom:12px;font-weight:400;font-size:13px;letter-spacing:.08em;color:var(--muted)}
+.filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.filter{--c:var(--accent);--t:#fff;--m:var(--line);display:flex;flex-direction:column;align-items:stretch;gap:8px;text-align:left;min-height:104px;padding:12px;background:rgba(255,255,255,.78);color:var(--ink);border:1.5px solid var(--m);border-radius:16px;transition:background-color .15s,border-color .15s,box-shadow .15s}
+.filter[data-category=A]{--c:var(--A);--t:var(--At);--m:var(--Am)}
+.filter[data-category=B]{--c:var(--B);--t:var(--Bt);--m:var(--Bm)}
+.filter[data-category=C]{--c:var(--C);--t:var(--Ct);--m:var(--Cm)}
+.filter[data-category=D]{--c:var(--D);--t:var(--Dt);--m:var(--Dm)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.letter{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:50%;background:var(--t);color:var(--c);border:1px solid var(--m);font-family:var(--serif);font-size:17px;font-weight:400;line-height:1;flex-shrink:0}
+.mark{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;border:2px solid var(--m);background:#fff;color:#fff;font-size:13px;font-weight:700;line-height:1;flex-shrink:0}
+.label{font-size:13px;line-height:1.6;font-weight:400;letter-spacing:.02em;word-break:auto-phrase;line-break:strict;text-wrap:balance}
+.filter[aria-pressed=true]{background:linear-gradient(135deg,var(--t),rgba(255,255,255,.9));border-color:var(--c);border-width:2.5px;padding:10.5px;box-shadow:0 0 0 1px var(--c) inset}
+.filter[aria-pressed=true] .letter{background:var(--c);color:#fff;border-color:var(--c)}
+.filter[aria-pressed=true] .mark{background:var(--c);border-color:var(--c)}
+.filter[aria-pressed=true] .mark::after{content:"✓"}
+.filter[aria-pressed=true] .label{font-weight:600}
+.rule{margin:14px 0 0;color:var(--muted);font-size:12px;line-height:1.75}
+.results{margin-top:20px}
+.result-bar{position:sticky;top:0;z-index:5;margin:0 calc(-1*var(--gutter)) 12px;padding:8px var(--gutter);background:rgba(241,246,239,.88);border-bottom:1px solid rgba(160,196,170,.6);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.result-head{display:flex;align-items:center;gap:10px}
+.count{font-family:var(--serif);font-size:26px;font-weight:400;line-height:1.3;color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+.reset{margin-left:auto;min-height:44px;min-width:44px;padding:0 20px;background:rgba(255,255,255,.8);color:var(--accent);border:1.5px solid #9fc3ac;border-radius:22px;font-size:13px;letter-spacing:.1em;white-space:nowrap}
+.reset:active{background:var(--Dt)}
+.mode{margin:0;color:var(--muted);font-size:12px;line-height:1.55;min-height:1.55em;letter-spacing:.02em}
+.songs{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.song{display:flex;gap:12px;align-items:center;justify-content:space-between;background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.95);border-radius:16px;padding:10px 10px 10px 16px;min-height:68px;box-shadow:0 4px 16px rgba(56,110,77,.1)}
+.song-info{min-width:0;flex:1 1 auto}
+.song-title{margin:0;font-size:16px;font-weight:500;line-height:1.5;letter-spacing:.02em;overflow-wrap:anywhere;word-break:auto-phrase}
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.tag{min-width:26px;text-align:center;border-radius:12px;background:var(--At);color:var(--A);font-size:12px;line-height:1.75;padding:0 8px;letter-spacing:.04em}
+.tag[data-category=B]{background:var(--Bt);color:var(--B)}
+.tag[data-category=C]{background:var(--Ct);color:var(--C)}
+.tag[data-category=D]{background:var(--Dt);color:var(--D)}
+.song-note{font-size:12px;line-height:1.6;color:var(--muted);margin:6px 0 0;overflow-wrap:anywhere}
+.play{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:#fff;color:var(--accent);border:1.5px solid #9fc3ac;text-decoration:none;flex-shrink:0;font-size:15px;padding-left:3px}
+.play:active{background:var(--Dt)}
+.empty{margin:0;text-align:center;padding:36px 16px;border:1px dashed #9fc3ac;border-radius:16px;color:var(--muted);font-size:14px;letter-spacing:.05em;background:rgba(255,255,255,.4)}
+footer{margin-top:32px;color:var(--muted);font-size:12px;line-height:1.85}
+.editorial{margin-top:14px}
+.editorial summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:var(--accent);font-size:13px}
+.editorial p{margin:8px 0}
+.editorial ul{padding-left:20px;margin:8px 0}
+.editorial li{margin:6px 0}
+.editorial a{color:var(--accent);overflow-wrap:anywhere}
+.queue{margin:0 0 12px}
+.queue-btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;padding:0 20px;background:var(--accent);color:#fff;border:2px solid var(--accent);border-radius:24px;font-size:15px;font-weight:600;letter-spacing:.06em;line-height:1.4;transition:background-color .15s,border-color .15s}
+.queue-btn:active{background:var(--focus);border-color:var(--focus)}
+.queue-btn:disabled{background:rgba(255,255,255,.5);color:var(--muted);border:2px dashed #9fc3ac;font-weight:400;cursor:default}
+.queue-status{margin:8px 0 0;color:var(--muted);font-size:12px;line-height:1.7}
+.queue-status:empty{margin:0;min-height:0}
+.queue-help{margin:0 0 14px}
+.queue-help ol{padding-left:22px;margin:8px 0}
+.queue-help li{margin:6px 0}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:inherit}
+[hidden]{display:none!important}
+@media(hover:hover){.filter:hover{border-color:var(--c)}.reset:hover,.play:hover{background:var(--At)}}
+@media(min-width:560px){.filters{grid-template-columns:repeat(4,minmax(0,1fr))}.filter{min-height:124px}.song{padding-left:20px}}
+@media(min-width:900px){:root{--gutter:24px}main{padding-top:48px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<header><p class="eyebrow">Mrs. GREEN APPLE</p><h1>歌詞の系統から、曲を選ぶ。</h1><p class="intro">文学性を広く捉えて選んだ131曲から、聴きたい曲を探せます。</p></header>
+<section class="panel" aria-label="曲の絞り込み">
+<fieldset><legend>分類を選択（複数選択可）</legend><div id="filters" class="filters"></div></fieldset>
+<p class="rule">1〜3個を選ぶと、選んだ分類すべてに当てはまる曲を表示。A〜Dをすべて選ぶと推薦対象の131曲を表示します。未選択では0曲です。</p>
+</section>
+<section class="results" aria-labelledby="result-title">
+<div class="result-bar"><div class="result-head"><h2 id="result-title">曲リスト</h2><span id="count" class="count" role="status" aria-live="polite" aria-atomic="true">0曲</span><button id="reset" class="reset" type="button">リセット</button></div>
+<p id="mode" class="mode"></p></div>
+<div class="queue"><button id="queue" class="queue-btn" type="button" disabled aria-describedby="queue-status">表示中の曲を再生</button><p id="queue-status" class="queue-status" role="status" aria-live="polite"></p></div>
+<details class="editorial queue-help"><summary>まとめて再生：初回の準備（iPhone / iPad）</summary>
+<p>表示中の曲を表示順にショートカットへ渡して再生します。現在の再生と再生待ちの曲は置き換わります。ライブラリへの追加操作は行いません。Apple Musicの契約が必要です。</p>
+<ol><li>ショートカットの名前を「ミセスキュー追加」にする。</li><li>「テキストを分割」を追加し、入力に変数「ショートカットの入力」、区切りに「新しい行」を指定する。</li><li>「各項目を繰り返す」を追加し、分割したテキストを渡す。</li><li>繰り返しの中に「iTunes Storeで検索」を置く。検索する値は「繰り返し項目」、カテゴリは「ミュージック」、検索基準は必ず「製品ID」、地域は「日本」にする。</li><li>「繰り返しの終了」の下に「ミュージックを再生」を置き、再生対象を「繰り返しの結果」にする。シャッフルとリピートはオフ。</li></ol>
+<p>曲数が多いと検索に時間がかかります。まず少ない曲数で試してください。配信対象外として登録されている曲は渡しません。画面が切り替わらない場合は、Safariで開き、ショートカット名が一致しているか確認してください。実行許可が表示されたら内容を確認して許可します。</p>
+<p>家族への共有：完成したショートカットの共有から「iCloudリンクをコピー」を選び、リンクを送ります。受け取った端末で追加すれば、同じ名前のショートカットをこのページから呼び出せます。</p></details>
+<p id="empty" class="empty">A〜Dから分類を選んでください。</p><ul id="songs" class="songs"></ul>
+<noscript><p class="empty">この曲リストを使うには、ブラウザのJavaScriptを有効にしてください。</p></noscript></section>
+<footer>▶ を押すとApple Musicの曲ページが開きます。再生操作はApple Music側で行ってください。<br>読みのあいうえお順で表示。分類は歌詞の解釈に基づく個人用の目安です。<br>収録データ：2026年10月5日確認。重複を除いた136曲から131曲を選定。<details class="editorial"><summary>選定基準と除外曲</summary><p>比喩・象徴、矛盾や揺れ、視点・構成の変化、解釈の余白を評価。②では、日常語や明るい曲の中の内省も拾っています。分類と選定は編集上の解釈です。</p><p>対象は2026年10月5日までの正式音源。インディーズ盤・カバー3曲・独立した器楽曲2曲を含み、同曲の再録・ライブ・言語違いは1曲に統合しています。</p><p>今回の除外5曲：</p><ul><li>サママ・フェスティバル！：季節の楽しさと現在の高揚が中心。今回は複層的な解釈より祝祭性が前面に出る曲として外す。</li><li>SwitCh：スイッチや魔法の比喩はあるが、日常への直接的な励ましを主軸と判断して外す。</li><li>WHOO WHOO WHOO：象徴的なイメージはあるが、今回は歌詞の物語・内省の展開より反復とダンスへの呼びかけを主軸と判断して外す。</li><li>InTerLuDe ～白い朝～：歌詞のない独立した器楽曲のため、歌詞の文学性を選ぶ対象外。</li><li>InsPirATioN：歌詞のない独立した器楽曲のため、歌詞の文学性を選ぶ対象外。</li></ul><p>Apple Musicは通常版シングル（カップリングを含む）を優先し、同等候補では公開日の早い音源を採用。PRESENTは先行シングルのEnglish ver.、The White Loungeは正式発売されたサウンドトラックのLive音源です。</p><p>参照：<a href="https://mrsgreenapple.com/discography/" target="_blank" rel="noopener noreferrer">公式ディスコグラフィー</a> ／ <a href="https://www.uta-net.com/artist/18526/" target="_blank" rel="noopener noreferrer">歌ネット</a></p></details></footer>
+</main>
+<!-- 曲データ：更新時はこのJSONを編集。ID・分類・採用済みURLを維持してください。 -->
+<script id="song-data" type="application/json">{
+  "artist": "Mrs. GREEN APPLE",
+  "verifiedOn": "2026-10-05",
+  "scopeCount": 136,
+  "selection": "② 文学性を広く捉える",
+  "categoryDefinitions": {
+    "A": "人間・世界への問い",
+    "B": "孤独・自己との葛藤",
+    "C": "愛・他者とのつながり",
+    "D": "時間・喪失・生の有限性"
+  },
+  "songs": [
+    {
+      "id": "mga-001",
+      "title": "共犯",
+      "categories": [
+        "A",
+        "B",
+        "C"
+      ],
+      "reading": "きょうはん",
+      "sortKey": "きょうはん",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E5%85%B1%E7%8A%AF/6808172946?i=6808172970",
+      "appleMusicTrackId": 6808172970,
+      "appleMusicRelease": "POPS",
+      "appleMusicVersion": "共犯",
+      "appleMusicReleaseDate": "2026-09-30"
+    },
+    {
+      "id": "mga-002",
+      "title": "シンデレラ",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "しんでれら",
+      "sortKey": "しんでれら",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%B7%E3%83%B3%E3%83%87%E3%83%AC%E3%83%A9/6808172946?i=6808173126",
+      "appleMusicTrackId": 6808173126,
+      "appleMusicRelease": "POPS",
+      "appleMusicVersion": "シンデレラ",
+      "appleMusicReleaseDate": "2026-09-30"
+    },
+    {
+      "id": "mga-003",
+      "title": "本と彗星",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "ほんとすいせい",
+      "sortKey": "ほんとすいせい",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E6%9C%AC%E3%81%A8%E5%BD%97%E6%98%9F/6808172946?i=6808173138",
+      "appleMusicTrackId": 6808173138,
+      "appleMusicRelease": "POPS",
+      "appleMusicVersion": "本と彗星",
+      "appleMusicReleaseDate": "2026-09-30"
+    },
+    {
+      "id": "mga-004",
+      "title": "ア・ポステリオリ",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "あぽすてりおり",
+      "sortKey": "あぽすてりおり",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%A2-%E3%83%9D%E3%82%B9%E3%83%86%E3%83%AA%E3%82%AA%E3%83%AA/6808172946?i=6808173143",
+      "appleMusicTrackId": 6808173143,
+      "appleMusicRelease": "POPS",
+      "appleMusicVersion": "ア・ポステリオリ",
+      "appleMusicReleaseDate": "2026-09-30"
+    },
+    {
+      "id": "mga-005",
+      "title": "エピソード",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "えぴそーど",
+      "sortKey": "えぴそーど",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%A8%E3%83%94%E3%82%BD%E3%83%BC%E3%83%89/6808172946?i=6808173145",
+      "appleMusicTrackId": 6808173145,
+      "appleMusicRelease": "POPS",
+      "appleMusicVersion": "エピソード",
+      "appleMusicReleaseDate": "2026-09-30"
+    },
+    {
+      "id": "mga-006",
+      "title": "Really Really",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "りありーりありー",
+      "sortKey": "りありーりありー",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/really-really/6808172946?i=6808173276",
+      "appleMusicTrackId": 6808173276,
+      "appleMusicRelease": "POPS",
+      "appleMusicVersion": "Really Really",
+      "appleMusicReleaseDate": "2026-09-30"
+    },
+    {
+      "id": "mga-007",
+      "title": "プロジェクト4",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "ぷろじぇくとふぉー",
+      "sortKey": "ぷろじぇくとふぉー",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%97%E3%83%AD%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%884/6808172946?i=6808173277",
+      "appleMusicTrackId": 6808173277,
+      "appleMusicRelease": "POPS",
+      "appleMusicVersion": "プロジェクト4",
+      "appleMusicReleaseDate": "2026-09-30"
+    },
+    {
+      "id": "mga-008",
+      "title": "瞞し",
+      "categories": [
+        "A",
+        "B",
+        "C"
+      ],
+      "reading": "まやかし",
+      "sortKey": "まやかし",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E7%9E%9E%E3%81%97/6808172946?i=6808173279",
+      "appleMusicTrackId": 6808173279,
+      "appleMusicRelease": "POPS",
+      "appleMusicVersion": "瞞し",
+      "appleMusicReleaseDate": "2026-09-30"
+    },
+    {
+      "id": "mga-009",
+      "title": "禁じた遊び",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "きんじたあそび",
+      "sortKey": "きんじたあそび",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E7%A6%81%E3%81%98%E3%81%9F%E9%81%8A%E3%81%B3/6808172946?i=6808173281",
+      "appleMusicTrackId": 6808173281,
+      "appleMusicRelease": "POPS",
+      "appleMusicVersion": "禁じた遊び",
+      "appleMusicReleaseDate": "2026-09-30"
+    },
+    {
+      "id": "mga-010",
+      "title": "Variety",
+      "categories": [
+        "A",
+        "B",
+        "D"
+      ],
+      "reading": "ばらえてぃ",
+      "sortKey": "ばらえてぃ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/variety/6808172946?i=6808173287",
+      "appleMusicTrackId": 6808173287,
+      "appleMusicRelease": "POPS",
+      "appleMusicVersion": "Variety",
+      "appleMusicReleaseDate": "2026-09-30"
+    },
+    {
+      "id": "mga-011",
+      "title": "愛情と矛先",
+      "categories": [
+        "A",
+        "C"
+      ],
+      "reading": "あいじょうとほこさき",
+      "sortKey": "あいじょうとほこさき",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E6%84%9B%E6%83%85%E3%81%A8%E7%9F%9B%E5%85%88/1440787736?i=1440787907",
+      "appleMusicTrackId": 1440787907,
+      "appleMusicRelease": "TWELVE",
+      "appleMusicVersion": "愛情と矛先",
+      "appleMusicReleaseDate": "2016-01-13"
+    },
+    {
+      "id": "mga-012",
+      "title": "アウフヘーベン",
+      "categories": [
+        "A",
+        "B",
+        "D"
+      ],
+      "reading": "あうふへーべん",
+      "sortKey": "あうふへーべん",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%A2%E3%82%A6%E3%83%95%E3%83%98%E3%83%BC%E3%83%99%E3%83%B3/1360523851?i=1360524260",
+      "appleMusicTrackId": 1360524260,
+      "appleMusicRelease": "ENSEMBLE",
+      "appleMusicVersion": "アウフヘーベン",
+      "appleMusicReleaseDate": "2018-04-18"
+    },
+    {
+      "id": "mga-013",
+      "title": "藍",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "あお",
+      "sortKey": "あお",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E8%97%8D-%E3%81%82%E3%81%8A/1440787736?i=1440788121",
+      "appleMusicTrackId": 1440788121,
+      "appleMusicRelease": "TWELVE",
+      "appleMusicVersion": "藍(あお)",
+      "appleMusicReleaseDate": "2016-01-13"
+    },
+    {
+      "id": "mga-014",
+      "title": "青と夏",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "あおとなつ",
+      "sortKey": "あおとなつ",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E9%9D%92%E3%81%A8%E5%A4%8F/1408505088?i=1408505264",
+      "appleMusicTrackId": 1408505264,
+      "appleMusicRelease": "青と夏 - EP",
+      "appleMusicVersion": "青と夏",
+      "appleMusicReleaseDate": "2018-07-12"
+    },
+    {
+      "id": "mga-015",
+      "title": "Attitude",
+      "categories": [
+        "A",
+        "B",
+        "D"
+      ],
+      "reading": "あてぃちゅーど",
+      "sortKey": "あてぃちゅーど",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/attitude/1475232910?i=1475232925",
+      "appleMusicTrackId": 1475232925,
+      "appleMusicRelease": "Attitude",
+      "appleMusicVersion": "Attitude",
+      "appleMusicReleaseDate": "2019-10-01"
+    },
+    {
+      "id": "mga-016",
+      "title": "ア・プリオリ",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "あぷりおり",
+      "sortKey": "あぷりおり",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%A2-%E3%83%97%E3%83%AA%E3%82%AA%E3%83%AA/1408505088?i=1408505420",
+      "appleMusicTrackId": 1408505420,
+      "appleMusicRelease": "青と夏 - EP",
+      "appleMusicVersion": "ア・プリオリ",
+      "appleMusicReleaseDate": "2018-08-01"
+    },
+    {
+      "id": "mga-017",
+      "title": "アボイドノート",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "あぼいどのーと",
+      "sortKey": "あぼいどのーと",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%A2%E3%83%9C%E3%82%A4%E3%83%89%E3%83%8E%E3%83%BC%E3%83%88/1509923546?i=1509924368",
+      "appleMusicTrackId": 1509924368,
+      "appleMusicRelease": "5",
+      "appleMusicVersion": "アボイドノート",
+      "appleMusicReleaseDate": "2020-05-27"
+    },
+    {
+      "id": "mga-018",
+      "title": "アポロドロス",
+      "categories": [
+        "B",
+        "D"
+      ],
+      "reading": "あぽろどろす",
+      "sortKey": "あぽろどろす",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%A2%E3%83%9D%E3%83%AD%E3%83%89%E3%83%AD%E3%82%B9/1754080039?i=1754080057",
+      "appleMusicTrackId": 1754080057,
+      "appleMusicRelease": "アポロドロス - Single",
+      "appleMusicVersion": "アポロドロス",
+      "appleMusicReleaseDate": "2024-07-03"
+    },
+    {
+      "id": "mga-019",
+      "title": "アンゼンパイ",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "あんぜんぱい",
+      "sortKey": "あんぜんぱい",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%A2%E3%83%B3%E3%82%BC%E3%83%B3%E3%83%91%E3%82%A4/1440794725?i=1440794980",
+      "appleMusicTrackId": 1440794980,
+      "appleMusicRelease": "Progressive - EP",
+      "appleMusicVersion": "アンゼンパイ",
+      "appleMusicReleaseDate": "2015-02-18"
+    },
+    {
+      "id": "mga-020",
+      "title": "ANTENNA",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "あんてな",
+      "sortKey": "あんてな",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/antenna/1691229798?i=1691229799",
+      "appleMusicTrackId": 1691229799,
+      "appleMusicRelease": "ANTENNA",
+      "appleMusicVersion": "ANTENNA",
+      "appleMusicReleaseDate": "2023-07-04"
+    },
+    {
+      "id": "mga-021",
+      "title": "umbrella",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "あんぶれら",
+      "sortKey": "あんぶれら",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/umbrella/1445294670?i=1445294673",
+      "appleMusicTrackId": 1445294673,
+      "appleMusicRelease": "サママ・フェスティバル! - EP",
+      "appleMusicVersion": "umbrella",
+      "appleMusicReleaseDate": "2016-06-15"
+    },
+    {
+      "id": "mga-022",
+      "title": "アンラブレス",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "あんらぶれす",
+      "sortKey": "あんらぶれす",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%A2%E3%83%B3%E3%83%A9%E3%83%96%E3%83%AC%E3%82%B9/1691229798?i=1691229815",
+      "appleMusicTrackId": 1691229815,
+      "appleMusicRelease": "ANTENNA",
+      "appleMusicVersion": "アンラブレス",
+      "appleMusicReleaseDate": "2023-07-04"
+    },
+    {
+      "id": "mga-023",
+      "title": "In the Morning",
+      "categories": [
+        "B"
+      ],
+      "reading": "いんざもーにんぐ",
+      "sortKey": "いんざもーにんぐ",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/in-the-morning/1444867223?i=1444867227",
+      "appleMusicTrackId": 1444867227,
+      "appleMusicRelease": "In the Morning - EP",
+      "appleMusicVersion": "In the Morning",
+      "appleMusicReleaseDate": "2016-11-02"
+    },
+    {
+      "id": "mga-024",
+      "title": "インフェルノ",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "いんふぇるの",
+      "sortKey": "いんふぇるの",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%A4%E3%83%B3%E3%83%95%E3%82%A7%E3%83%AB%E3%83%8E/1471459431?i=1471459432",
+      "appleMusicTrackId": 1471459432,
+      "appleMusicRelease": "インフェルノ - Single",
+      "appleMusicVersion": "インフェルノ",
+      "appleMusicReleaseDate": "2019-07-18"
+    },
+    {
+      "id": "mga-025",
+      "title": "WanteD! WanteD!",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "うぉんてっどうぉんてっど",
+      "sortKey": "うぉんてっどうぉんてっど",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/wanted-wanted/1440885551?i=1440885553",
+      "appleMusicTrackId": 1440885553,
+      "appleMusicRelease": "WanteD! WanteD! - EP",
+      "appleMusicVersion": "WanteD! WanteD!",
+      "appleMusicReleaseDate": "2017-08-29"
+    },
+    {
+      "id": "mga-026",
+      "title": "WaLL FloWeR",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "うぉーるふらわー",
+      "sortKey": "うぉーるふらわー",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/wall-flower/1440794725?i=1440795112",
+      "appleMusicTrackId": 1440795112,
+      "appleMusicRelease": "Progressive - EP",
+      "appleMusicVersion": "WaLL FloWeR",
+      "appleMusicReleaseDate": "2015-02-18"
+    },
+    {
+      "id": "mga-027",
+      "title": "嘘じゃないよ",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "うそじゃないよ",
+      "sortKey": "うそじゃないよ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E5%98%98%E3%81%98%E3%82%83%E3%81%AA%E3%81%84%E3%82%88/1475232910?i=1475233724",
+      "appleMusicTrackId": 1475233724,
+      "appleMusicRelease": "Attitude",
+      "appleMusicVersion": "嘘じゃないよ",
+      "appleMusicReleaseDate": "2019-10-02"
+    },
+    {
+      "id": "mga-028",
+      "title": "うブ",
+      "categories": [
+        "A",
+        "B",
+        "C"
+      ],
+      "reading": "うぶ",
+      "sortKey": "うぶ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%81%86%E3%83%96/1440883158?i=1440883432",
+      "appleMusicTrackId": 1440883432,
+      "appleMusicRelease": "Mrs. GREEN APPLE",
+      "appleMusicVersion": "うブ",
+      "appleMusicReleaseDate": "2017-01-11"
+    },
+    {
+      "id": "mga-029",
+      "title": "えほん",
+      "categories": [
+        "B",
+        "D"
+      ],
+      "reading": "えほん",
+      "sortKey": "えほん",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%81%88%E3%81%BB%E3%82%93/1445311495?i=1445311691",
+      "appleMusicTrackId": 1445311691,
+      "appleMusicRelease": "Speaking - Single",
+      "appleMusicVersion": "えほん",
+      "appleMusicReleaseDate": "2015-12-16"
+    },
+    {
+      "id": "mga-030",
+      "title": "L.P",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "えるぴー",
+      "sortKey": "えるぴー",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/l-p/1440745429?i=1440745449",
+      "appleMusicTrackId": 1440745449,
+      "appleMusicRelease": "Variety - EP",
+      "appleMusicVersion": "L.P",
+      "appleMusicReleaseDate": "2015-07-01"
+    },
+    {
+      "id": "mga-031",
+      "title": "延々",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "えんえん",
+      "sortKey": "えんえん",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E5%BB%B6%E3%80%85/1627629613?i=1627629633",
+      "appleMusicTrackId": 1627629633,
+      "appleMusicRelease": "Unity - EP",
+      "appleMusicVersion": "延々",
+      "appleMusicReleaseDate": "2022-07-07"
+    },
+    {
+      "id": "mga-032",
+      "title": "Oz",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "おず",
+      "sortKey": "おず",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/oz/1444867223?i=1444867239",
+      "appleMusicTrackId": 1444867239,
+      "appleMusicRelease": "In the Morning - EP",
+      "appleMusicVersion": "Oz",
+      "appleMusicReleaseDate": "2016-11-02"
+    },
+    {
+      "id": "mga-033",
+      "title": "おもちゃの兵隊",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "おもちゃのへいたい",
+      "sortKey": "おもちゃのへいたい",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%81%8A%E3%82%82%E3%81%A1%E3%82%83%E3%81%AE%E5%85%B5%E9%9A%8A/1440883158?i=1440883178",
+      "appleMusicTrackId": 1440883178,
+      "appleMusicRelease": "Mrs. GREEN APPLE",
+      "appleMusicVersion": "おもちゃの兵隊",
+      "appleMusicReleaseDate": "2017-01-11"
+    },
+    {
+      "id": "mga-034",
+      "title": "On My MiND",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "おんまいまいんど",
+      "sortKey": "おんまいまいんど",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/on-my-mind/1440885551?i=1440885554",
+      "appleMusicTrackId": 1440885554,
+      "appleMusicRelease": "WanteD! WanteD! - EP",
+      "appleMusicVersion": "On My MiND",
+      "appleMusicReleaseDate": "2017-08-29"
+    },
+    {
+      "id": "mga-035",
+      "title": "風と町",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "かぜとまち",
+      "sortKey": "かぜとまち",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E9%A2%A8%E3%81%A8%E7%94%BA/1891943324?i=1891943326",
+      "appleMusicTrackId": 1891943326,
+      "appleMusicRelease": "風と町 - Single",
+      "appleMusicVersion": "風と町",
+      "appleMusicReleaseDate": "2026-04-13"
+    },
+    {
+      "id": "mga-036",
+      "title": "我逢人",
+      "categories": [
+        "C"
+      ],
+      "reading": "がほうじん",
+      "sortKey": "がほうじん",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E6%88%91%E9%80%A2%E4%BA%BA/1440794725?i=1440794901",
+      "appleMusicTrackId": 1440794901,
+      "appleMusicRelease": "Progressive - EP",
+      "appleMusicVersion": "我逢人",
+      "appleMusicReleaseDate": "2015-02-18"
+    },
+    {
+      "id": "mga-037",
+      "title": "キコリ時計",
+      "categories": [
+        "B",
+        "D"
+      ],
+      "reading": "きこりどけい",
+      "sortKey": "きこりどけい",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%AD%E3%82%B3%E3%83%AA%E6%99%82%E8%A8%88/1440787736?i=1440788129",
+      "appleMusicTrackId": 1440788129,
+      "appleMusicRelease": "TWELVE",
+      "appleMusicVersion": "キコリ時計",
+      "appleMusicReleaseDate": "2016-01-13"
+    },
+    {
+      "id": "mga-038",
+      "title": "君を知らない",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "きみをしらない",
+      "sortKey": "きみをしらない",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E5%90%9B%E3%82%92%E7%9F%A5%E3%82%89%E3%81%AA%E3%81%84/1627629613?i=1627629626",
+      "appleMusicTrackId": 1627629626,
+      "appleMusicRelease": "Unity - EP",
+      "appleMusicVersion": "君を知らない",
+      "appleMusicReleaseDate": "2022-07-07"
+    },
+    {
+      "id": "mga-039",
+      "title": "Ke-Mo Sah-Bee",
+      "categories": [
+        "A",
+        "B",
+        "C"
+      ],
+      "reading": "きもさべ",
+      "sortKey": "きもさべ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/ke-mo-sah-bee/1475232910?i=1475233721",
+      "appleMusicTrackId": 1475233721,
+      "appleMusicRelease": "Attitude",
+      "appleMusicVersion": "Ke-Mo Sah-Bee",
+      "appleMusicReleaseDate": "2019-10-02"
+    },
+    {
+      "id": "mga-040",
+      "title": "Carrying Happiness",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "きゃりんぐはぴねす",
+      "sortKey": "きゃりんぐはぴねす",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/carrying-happiness/1826924327?i=1826924334",
+      "appleMusicTrackId": 1826924334,
+      "appleMusicRelease": "Carrying Happiness - Single",
+      "appleMusicVersion": "Carrying Happiness",
+      "appleMusicReleaseDate": "2025-07-19"
+    },
+    {
+      "id": "mga-041",
+      "title": "狭心症",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "きょうしんしょう",
+      "sortKey": "きょうしんしょう",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E7%8B%AD%E5%BF%83%E7%97%87/1852929105?i=1852929385",
+      "appleMusicTrackId": 1852929385,
+      "appleMusicRelease": "Dear Jubilee -RADWIMPS TRIBUTE-",
+      "appleMusicVersion": "狭心症",
+      "appleMusicReleaseDate": "2025-11-19",
+      "note": "RADWIMPSのカバー"
+    },
+    {
+      "id": "mga-042",
+      "title": "鯨の唄",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "くじらのうた",
+      "sortKey": "くじらのうた",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E9%AF%A8%E3%81%AE%E5%94%84/1440883158?i=1440883428",
+      "appleMusicTrackId": 1440883428,
+      "appleMusicRelease": "Mrs. GREEN APPLE",
+      "appleMusicVersion": "鯨の唄",
+      "appleMusicReleaseDate": "2017-01-11"
+    },
+    {
+      "id": "mga-043",
+      "title": "クスシキ",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "くすしき",
+      "sortKey": "くすしき",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%AF%E3%82%B9%E3%82%B7%E3%82%AD/1804230382?i=1804230388",
+      "appleMusicTrackId": 1804230388,
+      "appleMusicRelease": "クスシキ - Single",
+      "appleMusicVersion": "クスシキ",
+      "appleMusicReleaseDate": "2025-04-05"
+    },
+    {
+      "id": "mga-044",
+      "title": "クダリ",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "くだり",
+      "sortKey": "くだり",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%AF%E3%83%80%E3%83%AA/1475232910?i=1475233552",
+      "appleMusicTrackId": 1475233552,
+      "appleMusicRelease": "Attitude",
+      "appleMusicVersion": "クダリ",
+      "appleMusicReleaseDate": "2019-10-02"
+    },
+    {
+      "id": "mga-045",
+      "title": "GOOD DAY",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "ぐっどでい",
+      "sortKey": "ぐっどでい",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/good-day/1841344389?i=1841344390",
+      "appleMusicTrackId": 1841344390,
+      "appleMusicRelease": "GOOD DAY - Single",
+      "appleMusicVersion": "GOOD DAY",
+      "appleMusicReleaseDate": "2025-09-28"
+    },
+    {
+      "id": "mga-046",
+      "title": "ケセラセラ",
+      "categories": [
+        "B",
+        "D"
+      ],
+      "reading": "けせらせら",
+      "sortKey": "けせらせら",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%B1%E3%82%BB%E3%83%A9%E3%82%BB%E3%83%A9/1681600496?i=1681600508",
+      "appleMusicTrackId": 1681600508,
+      "appleMusicRelease": "ケセラセラ - Single",
+      "appleMusicVersion": "ケセラセラ",
+      "appleMusicReleaseDate": "2023-04-25"
+    },
+    {
+      "id": "mga-047",
+      "title": "恋と吟",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "こいとうた",
+      "sortKey": "こいとうた",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E6%81%8B%E3%81%A8%E5%90%9F-%E3%81%86%E3%81%9F/1445311495?i=1445311508",
+      "appleMusicTrackId": 1445311508,
+      "appleMusicRelease": "Speaking - Single",
+      "appleMusicVersion": "恋と吟(うた)",
+      "appleMusicReleaseDate": "2015-12-16"
+    },
+    {
+      "id": "mga-048",
+      "title": "コロンブス",
+      "categories": [
+        "A",
+        "C",
+        "D"
+      ],
+      "reading": "ころんぶす",
+      "sortKey": "ころんぶす",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%B3%E3%83%AD%E3%83%B3%E3%83%96%E3%82%B9/1750182330?i=1750182331",
+      "appleMusicTrackId": 1750182331,
+      "appleMusicRelease": "コロンブス - Single",
+      "appleMusicVersion": "コロンブス",
+      "appleMusicReleaseDate": "2024-06-12"
+    },
+    {
+      "id": "mga-049",
+      "title": "CONFLICT",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "こんふりくと",
+      "sortKey": "こんふりくと",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/conflict/1440794725?i=1440794976",
+      "appleMusicTrackId": 1440794976,
+      "appleMusicRelease": "Progressive - EP",
+      "appleMusicVersion": "CONFLICT",
+      "appleMusicReleaseDate": "2015-02-18"
+    },
+    {
+      "id": "mga-050",
+      "title": "Coffee",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "こーひー",
+      "sortKey": "こーひー",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/coffee/1360523851?i=1360524272",
+      "appleMusicTrackId": 1360524272,
+      "appleMusicRelease": "ENSEMBLE",
+      "appleMusicVersion": "Coffee",
+      "appleMusicReleaseDate": "2018-04-17"
+    },
+    {
+      "id": "mga-052",
+      "title": "Circle",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "さーくる",
+      "sortKey": "さーくる",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/circle/1475232910?i=1475233734",
+      "appleMusicTrackId": 1475233734,
+      "appleMusicRelease": "Attitude",
+      "appleMusicVersion": "Circle",
+      "appleMusicReleaseDate": "2019-10-02"
+    },
+    {
+      "id": "mga-053",
+      "title": "The White Lounge",
+      "categories": [
+        "A",
+        "B",
+        "D"
+      ],
+      "reading": "ざほわいとらうんじ",
+      "sortKey": "ざほわいとらうんじ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/the-white-lounge-live/1768916123?i=1768916124",
+      "appleMusicTrackId": 1768916124,
+      "appleMusicRelease": "The White Lounge in CINEMA - Original Soundtrack -",
+      "appleMusicVersion": "The White Lounge (Live)",
+      "appleMusicReleaseDate": "2024-09-23",
+      "note": "リンク：オリジナル・サウンドトラックのLive音源"
+    },
+    {
+      "id": "mga-054",
+      "title": "Theater",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "しあたー",
+      "sortKey": "しあたー",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/theater/1509923546?i=1509924372",
+      "appleMusicTrackId": 1509924372,
+      "appleMusicRelease": "5",
+      "appleMusicVersion": "Theater",
+      "appleMusicReleaseDate": "2020-07-07"
+    },
+    {
+      "id": "mga-055",
+      "title": "春愁",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "しゅんしゅう",
+      "sortKey": "しゅんしゅう",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E6%98%A5%E6%84%81/1441018133?i=1441018143",
+      "appleMusicTrackId": 1441018143,
+      "appleMusicRelease": "Love me, Love you - EP",
+      "appleMusicVersion": "春愁",
+      "appleMusicReleaseDate": "2018-02-14"
+    },
+    {
+      "id": "mga-056",
+      "title": "庶幾の唄",
+      "categories": [
+        "B",
+        "D"
+      ],
+      "reading": "しょきのうた",
+      "sortKey": "しょきのうた",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E5%BA%B6%E5%B9%BE%E3%81%AE%E5%94%84/1440787736?i=1440788515",
+      "appleMusicTrackId": 1440788515,
+      "appleMusicRelease": "TWELVE",
+      "appleMusicVersion": "庶幾の唄",
+      "appleMusicReleaseDate": "2016-01-13"
+    },
+    {
+      "id": "mga-057",
+      "title": "SimPle",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "しんぷる",
+      "sortKey": "しんぷる",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/simple/1440787736?i=1440788444",
+      "appleMusicTrackId": 1440788444,
+      "appleMusicRelease": "TWELVE",
+      "appleMusicVersion": "SimPle",
+      "appleMusicReleaseDate": "2016-01-13"
+    },
+    {
+      "id": "mga-058",
+      "title": "Just a Friend",
+      "categories": [
+        "C"
+      ],
+      "reading": "じゃすとあふれんど",
+      "sortKey": "じゃすとあふれんど",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/just-a-friend/1440883158?i=1440883449",
+      "appleMusicTrackId": 1440883449,
+      "appleMusicRelease": "Mrs. GREEN APPLE",
+      "appleMusicVersion": "Just a Friend",
+      "appleMusicReleaseDate": "2017-01-11"
+    },
+    {
+      "id": "mga-059",
+      "title": "JOURNEY",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "じゃーにー",
+      "sortKey": "じゃーにー",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/journey/1440883158?i=1440883706",
+      "appleMusicTrackId": 1440883706,
+      "appleMusicRelease": "Mrs. GREEN APPLE",
+      "appleMusicVersion": "JOURNEY",
+      "appleMusicReleaseDate": "2017-01-11"
+    },
+    {
+      "id": "mga-061",
+      "title": "スターダム",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "すたーだむ",
+      "sortKey": "すたーだむ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%80%E3%83%A0/1509923546?i=1509923628",
+      "appleMusicTrackId": 1509923628,
+      "appleMusicRelease": "5",
+      "appleMusicVersion": "スターダム",
+      "appleMusicReleaseDate": "2020-06-24"
+    },
+    {
+      "id": "mga-062",
+      "title": "StaRt",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "すたーと",
+      "sortKey": "すたーと",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/start/1440745429?i=1440745441",
+      "appleMusicTrackId": 1440745441,
+      "appleMusicRelease": "Variety - EP",
+      "appleMusicVersion": "StaRt",
+      "appleMusicReleaseDate": "2015-07-01"
+    },
+    {
+      "id": "mga-063",
+      "title": "Speaking",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "すぴーきんぐ",
+      "sortKey": "すぴーきんぐ",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/speaking/1444271000?i=1444271004",
+      "appleMusicTrackId": 1444271004,
+      "appleMusicRelease": "Speaking - Single",
+      "appleMusicVersion": "Speaking",
+      "appleMusicReleaseDate": "2015-11-12"
+    },
+    {
+      "id": "mga-064",
+      "title": "SPLASH!!!",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "すぷらっしゅ",
+      "sortKey": "すぷらっしゅ",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/splash/1360523851?i=1360524270",
+      "appleMusicTrackId": 1360524270,
+      "appleMusicRelease": "ENSEMBLE",
+      "appleMusicVersion": "SPLASH!!!",
+      "appleMusicReleaseDate": "2018-04-17"
+    },
+    {
+      "id": "mga-065",
+      "title": "スマイロブドリーマ",
+      "categories": [
+        "B",
+        "D"
+      ],
+      "reading": "すまいろぶどりーま",
+      "sortKey": "すまいろぶどりーま",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%B9%E3%83%9E%E3%82%A4%E3%83%AD%E3%83%96%E3%83%89%E3%83%AA%E3%83%BC%E3%83%9E/1444321740?i=1444321745",
+      "appleMusicTrackId": 1444321745,
+      "appleMusicRelease": "どこかで日は昇る - EP",
+      "appleMusicVersion": "スマイロブドリーマ",
+      "appleMusicReleaseDate": "2017-05-03"
+    },
+    {
+      "id": "mga-066",
+      "title": "Soup",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "すーぷ",
+      "sortKey": "すーぷ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/soup/1475232910?i=1475233731",
+      "appleMusicTrackId": 1475233731,
+      "appleMusicRelease": "Attitude",
+      "appleMusicVersion": "Soup",
+      "appleMusicReleaseDate": "2019-10-02"
+    },
+    {
+      "id": "mga-067",
+      "title": "They are",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "ぜいあー",
+      "sortKey": "ぜいあー",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/they-are/1360523851?i=1360524265",
+      "appleMusicTrackId": 1360524265,
+      "appleMusicRelease": "ENSEMBLE",
+      "appleMusicVersion": "They are",
+      "appleMusicReleaseDate": "2018-04-17"
+    },
+    {
+      "id": "mga-068",
+      "title": "絶世生物",
+      "categories": [
+        "A",
+        "D"
+      ],
+      "reading": "ぜっせいせいぶつ",
+      "sortKey": "ぜっせいせいぶつ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E7%B5%B6%E4%B8%96%E7%94%9F%E7%89%A9/1440883158?i=1440883180",
+      "appleMusicTrackId": 1440883180,
+      "appleMusicRelease": "Mrs. GREEN APPLE",
+      "appleMusicVersion": "絶世生物",
+      "appleMusicReleaseDate": "2017-01-11"
+    },
+    {
+      "id": "mga-069",
+      "title": "ゼンマイ",
+      "categories": [
+        "A",
+        "B",
+        "D"
+      ],
+      "reading": "ぜんまい",
+      "sortKey": "ぜんまい",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%82%BC%E3%83%B3%E3%83%9E%E3%82%A4/1440745429?i=1440745517",
+      "appleMusicTrackId": 1440745517,
+      "appleMusicRelease": "Variety - EP",
+      "appleMusicVersion": "ゼンマイ",
+      "appleMusicReleaseDate": "2015-07-01"
+    },
+    {
+      "id": "mga-070",
+      "title": "soFt-dRink",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "そふとどりんく",
+      "sortKey": "そふとどりんく",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/soft-drink/1440883158?i=1440883424",
+      "appleMusicTrackId": 1440883424,
+      "appleMusicRelease": "Mrs. GREEN APPLE",
+      "appleMusicVersion": "soFt-dRink",
+      "appleMusicReleaseDate": "2017-01-11"
+    },
+    {
+      "id": "mga-071",
+      "title": "Soranji",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "そらんじ",
+      "sortKey": "そらんじ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/soranji/1648865573?i=1648865575",
+      "appleMusicTrackId": 1648865575,
+      "appleMusicRelease": "Soranji - Single",
+      "appleMusicVersion": "Soranji",
+      "appleMusicReleaseDate": "2022-10-18"
+    },
+    {
+      "id": "mga-072",
+      "title": "橙",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "だいだい",
+      "sortKey": "だいだい",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E6%A9%99/1691229798?i=1691229819",
+      "appleMusicTrackId": 1691229819,
+      "appleMusicRelease": "ANTENNA",
+      "appleMusicVersion": "橙",
+      "appleMusicReleaseDate": "2023-07-04"
+    },
+    {
+      "id": "mga-073",
+      "title": "ダンスホール",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "だんすほーる",
+      "sortKey": "だんすほーる",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%80%E3%83%B3%E3%82%B9%E3%83%9B%E3%83%BC%E3%83%AB/1623304208?i=1623304209",
+      "appleMusicTrackId": 1623304209,
+      "appleMusicRelease": "ダンスホール - Single",
+      "appleMusicVersion": "ダンスホール",
+      "appleMusicReleaseDate": "2022-05-24"
+    },
+    {
+      "id": "mga-074",
+      "title": "ダーリン",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "だーりん",
+      "sortKey": "だーりん",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%80%E3%83%BC%E3%83%AA%E3%83%B3/1790599503?i=1790599512",
+      "appleMusicTrackId": 1790599512,
+      "appleMusicRelease": "ダーリン - EP",
+      "appleMusicVersion": "ダーリン",
+      "appleMusicReleaseDate": "2025-01-20"
+    },
+    {
+      "id": "mga-075",
+      "title": "CHEERS",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "ちあーず",
+      "sortKey": "ちあーず",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/cheers/1475232910?i=1475233530",
+      "appleMusicTrackId": 1475233530,
+      "appleMusicRelease": "Attitude",
+      "appleMusicVersion": "CHEERS",
+      "appleMusicReleaseDate": "2019-09-19"
+    },
+    {
+      "id": "mga-076",
+      "title": "月とアネモネ",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "つきとあねもね",
+      "sortKey": "つきとあねもね",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E6%9C%88%E3%81%A8%E3%82%A2%E3%83%8D%E3%83%A2%E3%83%8D/1454643208?i=1454643223",
+      "appleMusicTrackId": 1454643223,
+      "appleMusicRelease": "ロマンチシズム - EP",
+      "appleMusicVersion": "月とアネモネ",
+      "appleMusicReleaseDate": "2019-04-02"
+    },
+    {
+      "id": "mga-077",
+      "title": "ツキマシテハ",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "つきましては",
+      "sortKey": "つきましては",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%84%E3%82%AD%E3%83%9E%E3%82%B7%E3%83%86%E3%83%8F/1444867223?i=1444867235",
+      "appleMusicTrackId": 1444867235,
+      "appleMusicRelease": "In the Morning - EP",
+      "appleMusicVersion": "ツキマシテハ",
+      "appleMusicReleaseDate": "2016-11-02"
+    },
+    {
+      "id": "mga-078",
+      "title": "天国",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "てんごく",
+      "sortKey": "てんごく",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E5%A4%A9%E5%9B%BD/1810410951?i=1810410952",
+      "appleMusicTrackId": 1810410952,
+      "appleMusicRelease": "天国 - Single",
+      "appleMusicVersion": "天国",
+      "appleMusicReleaseDate": "2025-05-02"
+    },
+    {
+      "id": "mga-079",
+      "title": "点描の唄 (feat. 井上苑子)",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "てんびょうのうた",
+      "sortKey": "てんびょうのうた",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E7%82%B9%E6%8F%8F%E3%81%AE%E5%94%84-feat-%E4%BA%95%E4%B8%8A%E8%8B%91%E5%AD%90/1408505088?i=1408505419",
+      "appleMusicTrackId": 1408505419,
+      "appleMusicRelease": "青と夏 - EP",
+      "appleMusicVersion": "点描の唄 (feat. 井上苑子)",
+      "appleMusicReleaseDate": "2018-08-01"
+    },
+    {
+      "id": "mga-080",
+      "title": "Dear",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "でぃあ",
+      "sortKey": "でぃあ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/dear/1745507461?i=1745507749",
+      "appleMusicTrackId": 1745507749,
+      "appleMusicRelease": "Dear - Single",
+      "appleMusicVersion": "Dear",
+      "appleMusicReleaseDate": "2024-05-20"
+    },
+    {
+      "id": "mga-081",
+      "title": "灯火",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "ともしび",
+      "sortKey": "ともしび",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E7%81%AF%E7%81%AB/1445145788?i=1445145971",
+      "appleMusicTrackId": 1445145971,
+      "appleMusicRelease": "僕のこと - EP",
+      "appleMusicVersion": "灯火",
+      "appleMusicReleaseDate": "2019-01-08"
+    },
+    {
+      "id": "mga-082",
+      "title": "Doodle",
+      "categories": [
+        "B",
+        "D"
+      ],
+      "reading": "どぅーどぅる",
+      "sortKey": "どぅーどぅる",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/doodle/1691229798?i=1691230114",
+      "appleMusicTrackId": 1691230114,
+      "appleMusicRelease": "ANTENNA",
+      "appleMusicVersion": "Doodle",
+      "appleMusicReleaseDate": "2023-07-04"
+    },
+    {
+      "id": "mga-083",
+      "title": "道徳と皿",
+      "categories": [
+        "A",
+        "C",
+        "D"
+      ],
+      "reading": "どうとくとさら",
+      "sortKey": "どうとくとさら",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E9%81%93%E5%BE%B3%E3%81%A8%E7%9A%BF/1440745429?i=1440745521",
+      "appleMusicTrackId": 1440745521,
+      "appleMusicRelease": "Variety - EP",
+      "appleMusicVersion": "道徳と皿",
+      "appleMusicReleaseDate": "2015-07-01"
+    },
+    {
+      "id": "mga-084",
+      "title": "どこかで日は昇る",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "どこかでひはのぼる",
+      "sortKey": "どこかでひはのぼる",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%81%A9%E3%81%93%E3%81%8B%E3%81%A7%E6%97%A5%E3%81%AF%E6%98%87%E3%82%8B/1444321740?i=1444321743",
+      "appleMusicTrackId": 1444321743,
+      "appleMusicRelease": "どこかで日は昇る - EP",
+      "appleMusicVersion": "どこかで日は昇る",
+      "appleMusicReleaseDate": "2017-05-03"
+    },
+    {
+      "id": "mga-085",
+      "title": "夏の影",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "なつのかげ",
+      "sortKey": "なつのかげ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E5%A4%8F%E3%81%AE%E5%BD%B1/1831207782?i=1831207784",
+      "appleMusicTrackId": 1831207784,
+      "appleMusicRelease": "夏の影 - Single",
+      "appleMusicVersion": "夏の影",
+      "appleMusicReleaseDate": "2025-08-11"
+    },
+    {
+      "id": "mga-086",
+      "title": "ナニヲナニヲ",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "なにをなにを",
+      "sortKey": "なにをなにを",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%8A%E3%83%8B%E3%83%B2%E3%83%8A%E3%83%8B%E3%83%B2/1440794725?i=1440794967",
+      "appleMusicTrackId": 1440794967,
+      "appleMusicRelease": "Progressive - EP",
+      "appleMusicVersion": "ナニヲナニヲ",
+      "appleMusicReleaseDate": "2015-02-18"
+    },
+    {
+      "id": "mga-087",
+      "title": "ナハトムジーク",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "なはとむじーく",
+      "sortKey": "なはとむじーく",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%8A%E3%83%8F%E3%83%88%E3%83%A0%E3%82%B8%E3%83%BC%E3%82%AF/1724293061?i=1724293062",
+      "appleMusicTrackId": 1724293062,
+      "appleMusicRelease": "ナハトムジーク - Single",
+      "appleMusicVersion": "ナハトムジーク",
+      "appleMusicReleaseDate": "2024-01-17"
+    },
+    {
+      "id": "mga-088",
+      "title": "No.7",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "なんばーせぶん",
+      "sortKey": "なんばーせぶん",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/no-7/1440787736?i=1440788297",
+      "appleMusicTrackId": 1440788297,
+      "appleMusicRelease": "TWELVE",
+      "appleMusicVersion": "No.7",
+      "appleMusicReleaseDate": "2016-01-13"
+    },
+    {
+      "id": "mga-089",
+      "title": "ニュー・マイ・ノーマル",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "にゅーまいのーまる",
+      "sortKey": "にゅーまいのーまる",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%8B%E3%83%A5%E3%83%BC-%E3%83%9E%E3%82%A4-%E3%83%8E%E3%83%BC%E3%83%9E%E3%83%AB/1614180830?i=1614180831",
+      "appleMusicTrackId": 1614180831,
+      "appleMusicRelease": "ニュー・マイ・ノーマル - Single",
+      "appleMusicVersion": "ニュー・マイ・ノーマル",
+      "appleMusicReleaseDate": "2022-03-18"
+    },
+    {
+      "id": "mga-090",
+      "title": "ノニサクウタ",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "のにさくうた",
+      "sortKey": "のにさくうた",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%8E%E3%83%8B%E3%82%B5%E3%82%AF%E3%82%A6%E3%82%BF/1445294670?i=1445294675",
+      "appleMusicTrackId": 1445294675,
+      "appleMusicRelease": "サママ・フェスティバル! - EP",
+      "appleMusicVersion": "ノニサクウタ",
+      "appleMusicReleaseDate": "2016-06-15"
+    },
+    {
+      "id": "mga-091",
+      "title": "norn",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "のるん",
+      "sortKey": "のるん",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/norn/1691229798?i=1691229817",
+      "appleMusicTrackId": 1691229817,
+      "appleMusicRelease": "ANTENNA",
+      "appleMusicVersion": "norn",
+      "appleMusicReleaseDate": "2023-07-04"
+    },
+    {
+      "id": "mga-092",
+      "title": "How-to",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "はうとぅー",
+      "sortKey": "はうとぅー",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/how-to/1454643208?i=1454643220",
+      "appleMusicTrackId": 1454643220,
+      "appleMusicRelease": "ロマンチシズム - EP",
+      "appleMusicVersion": "How-to",
+      "appleMusicReleaseDate": "2019-04-02"
+    },
+    {
+      "id": "mga-093",
+      "title": "Hug",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "はぐ",
+      "sortKey": "はぐ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/hug/1440787736?i=1440788464",
+      "appleMusicTrackId": 1440788464,
+      "appleMusicRelease": "TWELVE",
+      "appleMusicVersion": "Hug",
+      "appleMusicReleaseDate": "2016-01-13"
+    },
+    {
+      "id": "mga-094",
+      "title": "はじまり feat. キヨサク from MONGOL800",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "はじまり",
+      "sortKey": "はじまり",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%81%AF%E3%81%98%E3%81%BE%E3%82%8A-feat-%E3%82%AD%E3%83%A8%E3%82%B5%E3%82%AF-from-mongol800/1360523851?i=1360524262",
+      "appleMusicTrackId": 1360524262,
+      "appleMusicRelease": "ENSEMBLE",
+      "appleMusicVersion": "はじまり feat. キヨサク from MONGOL800",
+      "appleMusicReleaseDate": "2018-04-17"
+    },
+    {
+      "id": "mga-095",
+      "title": "HeLLo",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "はろー",
+      "sortKey": "はろー",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/hello/1440787736?i=1440788506",
+      "appleMusicTrackId": 1440788506,
+      "appleMusicRelease": "TWELVE",
+      "appleMusicVersion": "HeLLo",
+      "appleMusicReleaseDate": "2016-01-13"
+    },
+    {
+      "id": "mga-096",
+      "title": "Viking",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "ばいきんぐ",
+      "sortKey": "ばいきんぐ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/viking/1475232910?i=1475233532",
+      "appleMusicTrackId": 1475233532,
+      "appleMusicRelease": "Attitude",
+      "appleMusicVersion": "Viking",
+      "appleMusicReleaseDate": "2019-10-02"
+    },
+    {
+      "id": "mga-097",
+      "title": "パブリック",
+      "categories": [
+        "A",
+        "C",
+        "D"
+      ],
+      "reading": "ぱぶりっく",
+      "sortKey": "ぱぶりっく",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%91%E3%83%96%E3%83%AA%E3%83%83%E3%82%AF/1440787736?i=1440788114",
+      "appleMusicTrackId": 1440788114,
+      "appleMusicRelease": "TWELVE",
+      "appleMusicVersion": "パブリック",
+      "appleMusicReleaseDate": "2016-01-13"
+    },
+    {
+      "id": "mga-098",
+      "title": "PARTY",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "ぱーてぃー",
+      "sortKey": "ぱーてぃー",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/party/1360523851?i=1360524254",
+      "appleMusicTrackId": 1360524254,
+      "appleMusicRelease": "ENSEMBLE",
+      "appleMusicVersion": "PARTY",
+      "appleMusicReleaseDate": "2018-04-17"
+    },
+    {
+      "id": "mga-099",
+      "title": "Part of me",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "ぱーとおぶみー",
+      "sortKey": "ぱーとおぶみー",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/part-of-me/1627629613?i=1627629634",
+      "appleMusicTrackId": 1627629634,
+      "appleMusicRelease": "Unity - EP",
+      "appleMusicVersion": "Part of me",
+      "appleMusicReleaseDate": "2022-07-07"
+    },
+    {
+      "id": "mga-100",
+      "title": "光のうた",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "ひかりのうた",
+      "sortKey": "ひかりのうた",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E5%85%89%E3%81%AE%E3%81%86%E3%81%9F/1440885551?i=1440885555",
+      "appleMusicTrackId": 1440885555,
+      "appleMusicRelease": "WanteD! WanteD! - EP",
+      "appleMusicVersion": "光のうた",
+      "appleMusicReleaseDate": "2017-08-29"
+    },
+    {
+      "id": "mga-101",
+      "title": "日々と君",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "ひびときみ",
+      "sortKey": "ひびときみ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E6%97%A5%E3%80%85%E3%81%A8%E5%90%9B/1440794725?i=1440795104",
+      "appleMusicTrackId": 1440795104,
+      "appleMusicRelease": "Progressive - EP",
+      "appleMusicVersion": "日々と君",
+      "appleMusicReleaseDate": "2015-02-18"
+    },
+    {
+      "id": "mga-102",
+      "title": "ビターバカンス",
+      "categories": [
+        "B",
+        "D"
+      ],
+      "reading": "びたーばかんす",
+      "sortKey": "びたーばかんす",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%93%E3%82%BF%E3%83%BC%E3%83%90%E3%82%AB%E3%83%B3%E3%82%B9/1780452034?i=1780452035",
+      "appleMusicTrackId": 1780452035,
+      "appleMusicRelease": "ビターバカンス - Single",
+      "appleMusicVersion": "ビターバカンス",
+      "appleMusicReleaseDate": "2024-11-29"
+    },
+    {
+      "id": "mga-103",
+      "title": "VIP",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "びっぷ",
+      "sortKey": "びっぷ",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/vip/1440745429?i=1440745514",
+      "appleMusicTrackId": 1440745514,
+      "appleMusicRelease": "Variety - EP",
+      "appleMusicVersion": "VIP",
+      "appleMusicReleaseDate": "2015-07-01"
+    },
+    {
+      "id": "mga-104",
+      "title": "BFF",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "びーえふえふ",
+      "sortKey": "びーえふえふ",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/bff/1691229798?i=1691230122",
+      "appleMusicTrackId": 1691230122,
+      "appleMusicRelease": "ANTENNA",
+      "appleMusicVersion": "BFF",
+      "appleMusicReleaseDate": "2023-07-04"
+    },
+    {
+      "id": "mga-105",
+      "title": "FACTORY",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "ふぁくとりー",
+      "sortKey": "ふぁくとりー",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/factory/1440883158?i=1440883693",
+      "appleMusicTrackId": 1440883693,
+      "appleMusicRelease": "Mrs. GREEN APPLE",
+      "appleMusicVersion": "FACTORY",
+      "appleMusicReleaseDate": "2017-01-11"
+    },
+    {
+      "id": "mga-106",
+      "title": "familie",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "ふぁみーりえ",
+      "sortKey": "ふぁみーりえ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/familie/1760670508?i=1760670654",
+      "appleMusicTrackId": 1760670654,
+      "appleMusicRelease": "familie - Single",
+      "appleMusicVersion": "familie",
+      "appleMusicReleaseDate": "2024-08-09"
+    },
+    {
+      "id": "mga-107",
+      "title": "Feeling",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "ふぃーりんぐ",
+      "sortKey": "ふぃーりんぐ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/feeling/1691229798?i=1691230123",
+      "appleMusicTrackId": 1691230123,
+      "appleMusicRelease": "ANTENNA",
+      "appleMusicVersion": "Feeling",
+      "appleMusicReleaseDate": "2023-07-04"
+    },
+    {
+      "id": "mga-108",
+      "title": "Folktale",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "ふぉーくている",
+      "sortKey": "ふぉーくている",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/folktale/1445145788?i=1445145973",
+      "appleMusicTrackId": 1445145973,
+      "appleMusicRelease": "僕のこと - EP",
+      "appleMusicVersion": "Folktale",
+      "appleMusicReleaseDate": "2019-01-08"
+    },
+    {
+      "id": "mga-109",
+      "title": "フロリジナル",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "ふろりじなる",
+      "sortKey": "ふろりじなる",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%95%E3%83%AD%E3%83%AA%E3%82%B8%E3%83%8A%E3%83%AB/1648865573?i=1648865586",
+      "appleMusicTrackId": 1648865586,
+      "appleMusicRelease": "Soranji - Single",
+      "appleMusicVersion": "フロリジナル",
+      "appleMusicReleaseDate": "2022-11-08"
+    },
+    {
+      "id": "mga-111",
+      "title": "Brand New",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "ぶらんどにゅー",
+      "sortKey": "ぶらんどにゅー",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/brand-new/6788211807?i=6788211810",
+      "appleMusicTrackId": 6788211810,
+      "appleMusicRelease": "Brand New - Single",
+      "appleMusicVersion": "Brand New",
+      "appleMusicReleaseDate": "2026-07-13"
+    },
+    {
+      "id": "mga-112",
+      "title": "Blizzard",
+      "categories": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "ぶりざーど",
+      "sortKey": "ぶりざーど",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/blizzard/1691229798?i=1691229811",
+      "appleMusicTrackId": 1691229811,
+      "appleMusicRelease": "ANTENNA",
+      "appleMusicVersion": "Blizzard",
+      "appleMusicReleaseDate": "2023-07-04"
+    },
+    {
+      "id": "mga-113",
+      "title": "ブルーアンビエンス (feat. asmi)",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "ぶるーあんびえんす",
+      "sortKey": "ぶるーあんびえんす",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%96%E3%83%AB%E3%83%BC%E3%82%A2%E3%83%B3%E3%83%93%E3%82%A8%E3%83%B3%E3%82%B9-feat-asmi/1627629613?i=1627629624",
+      "appleMusicTrackId": 1627629624,
+      "appleMusicRelease": "Unity - EP",
+      "appleMusicVersion": "ブルーアンビエンス (feat. asmi)",
+      "appleMusicReleaseDate": "2022-06-15"
+    },
+    {
+      "id": "mga-114",
+      "title": "breakfast",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "ぶれっくふぁすと",
+      "sortKey": "ぶれっくふぁすと",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/breakfast/1817561734?i=1817561951",
+      "appleMusicTrackId": 1817561951,
+      "appleMusicRelease": "breakfast - Single",
+      "appleMusicVersion": "breakfast",
+      "appleMusicReleaseDate": "2025-06-04"
+    },
+    {
+      "id": "mga-115",
+      "title": "PRESENT",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "ぷれぜんと",
+      "sortKey": "ぷれぜんと",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/present-english-ver/1504783759?i=1504783764",
+      "appleMusicTrackId": 1504783764,
+      "appleMusicRelease": "PRESENT (English ver.) - Single",
+      "appleMusicVersion": "PRESENT (English ver.)",
+      "appleMusicReleaseDate": "2020-04-10",
+      "note": "リンク：English ver."
+    },
+    {
+      "id": "mga-116",
+      "title": "ProPose",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "ぷろぽーず",
+      "sortKey": "ぷろぽーず",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/propose/1475232910?i=1475233533",
+      "appleMusicTrackId": 1475233533,
+      "appleMusicRelease": "Attitude",
+      "appleMusicVersion": "ProPose",
+      "appleMusicReleaseDate": "2019-10-02"
+    },
+    {
+      "id": "mga-117",
+      "title": "僕のこと",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "ぼくのこと",
+      "sortKey": "ぼくのこと",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E5%83%95%E3%81%AE%E3%81%93%E3%81%A8/1445145788?i=1445145789",
+      "appleMusicTrackId": 1445145789,
+      "appleMusicRelease": "僕のこと - EP",
+      "appleMusicVersion": "僕のこと",
+      "appleMusicReleaseDate": "2018-12-26"
+    },
+    {
+      "id": "mga-118",
+      "title": "Magic",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "まじっく",
+      "sortKey": "まじっく",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/magic/1691229798?i=1691229801",
+      "appleMusicTrackId": 1691229801,
+      "appleMusicRelease": "ANTENNA",
+      "appleMusicVersion": "Magic",
+      "appleMusicReleaseDate": "2023-06-14"
+    },
+    {
+      "id": "mga-119",
+      "title": "ミスカサズ",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "みすかさず",
+      "sortKey": "みすかさず",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%9F%E3%82%B9%E3%82%AB%E3%82%B5%E3%82%BA/1440787736?i=1440788311",
+      "appleMusicTrackId": 1440788311,
+      "appleMusicRelease": "TWELVE",
+      "appleMusicVersion": "ミスカサズ",
+      "appleMusicReleaseDate": "2016-01-13"
+    },
+    {
+      "id": "mga-120",
+      "title": "慶びの種",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "よろこびのたね",
+      "sortKey": "よろこびのたね",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E6%85%B6%E3%81%B3%E3%81%AE%E7%A8%AE/1823814178?i=1823814363",
+      "appleMusicTrackId": 1823814363,
+      "appleMusicRelease": "10",
+      "appleMusicVersion": "慶びの種",
+      "appleMusicReleaseDate": "2025-07-07"
+    },
+    {
+      "id": "mga-121",
+      "title": "Lion",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "らいおん",
+      "sortKey": "らいおん",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/lion/1440883158?i=1440883166",
+      "appleMusicTrackId": 1440883166,
+      "appleMusicRelease": "Mrs. GREEN APPLE",
+      "appleMusicVersion": "Lion",
+      "appleMusicReleaseDate": "2017-01-11"
+    },
+    {
+      "id": "mga-122",
+      "title": "ライラック",
+      "categories": [
+        "B",
+        "D"
+      ],
+      "reading": "らいらっく",
+      "sortKey": "らいらっく",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%A9%E3%82%A4%E3%83%A9%E3%83%83%E3%82%AF/1739088465?i=1739088799",
+      "appleMusicTrackId": 1739088799,
+      "appleMusicRelease": "ライラック - Single",
+      "appleMusicVersion": "ライラック",
+      "appleMusicReleaseDate": "2024-04-12"
+    },
+    {
+      "id": "mga-123",
+      "title": "lovin'",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "らびん",
+      "sortKey": "らびん",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/lovin/1475232910?i=1475233708",
+      "appleMusicTrackId": 1475233708,
+      "appleMusicRelease": "Attitude",
+      "appleMusicVersion": "lovin'",
+      "appleMusicReleaseDate": "2019-08-17"
+    },
+    {
+      "id": "mga-124",
+      "title": "Love me, Love you",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "らぶみーらぶゆー",
+      "sortKey": "らぶみーらぶゆー",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/love-me-love-you/1441018133?i=1441018140",
+      "appleMusicTrackId": 1441018140,
+      "appleMusicRelease": "Love me, Love you - EP",
+      "appleMusicVersion": "Love me, Love you",
+      "appleMusicReleaseDate": "2018-02-14"
+    },
+    {
+      "id": "mga-125",
+      "title": "リスキーゲーム",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "りすきーげーむ",
+      "sortKey": "りすきーげーむ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%AA%E3%82%B9%E3%82%AD%E3%83%BC%E3%82%B2%E3%83%BC%E3%83%A0/1440745429?i=1440745446",
+      "appleMusicTrackId": 1440745446,
+      "appleMusicRelease": "Variety - EP",
+      "appleMusicVersion": "リスキーゲーム",
+      "appleMusicReleaseDate": "2015-07-01"
+    },
+    {
+      "id": "mga-126",
+      "title": "REVERSE",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "りばーす",
+      "sortKey": "りばーす",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/reverse/1360523851?i=1360524271",
+      "appleMusicTrackId": 1360524271,
+      "appleMusicRelease": "ENSEMBLE",
+      "appleMusicVersion": "REVERSE",
+      "appleMusicReleaseDate": "2018-04-17"
+    },
+    {
+      "id": "mga-127",
+      "title": "流星",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "りゅうせい",
+      "sortKey": "りゅうせい",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E6%B5%81%E6%98%9F/1440883414?i=1440883683",
+      "appleMusicTrackId": 1440883683,
+      "appleMusicRelease": "今日までそして明日からも、吉田拓郎 tribute to TAKURO YOSHIDA",
+      "appleMusicVersion": "流星",
+      "appleMusicReleaseDate": "2017-06-07",
+      "note": "吉田拓郎のカバー / 日本向けカタログではストリーミング非対応"
+    },
+    {
+      "id": "mga-128",
+      "title": "lulu.",
+      "categories": [
+        "C",
+        "D"
+      ],
+      "reading": "るる",
+      "sortKey": "るる",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/lulu/1867354077?i=1867354081",
+      "appleMusicTrackId": 1867354081,
+      "appleMusicRelease": "lulu. - Single",
+      "appleMusicVersion": "lulu.",
+      "appleMusicReleaseDate": "2026-01-12"
+    },
+    {
+      "id": "mga-129",
+      "title": "Log (feat. 坂口有望)",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "ろぐ",
+      "sortKey": "ろぐ",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/log-feat-%E5%9D%82%E5%8F%A3%E6%9C%89%E6%9C%9B/1441018133?i=1441018142",
+      "appleMusicTrackId": 1441018142,
+      "appleMusicRelease": "Love me, Love you - EP",
+      "appleMusicVersion": "Log (feat. 坂口有望)",
+      "appleMusicReleaseDate": "2018-02-14"
+    },
+    {
+      "id": "mga-130",
+      "title": "ロマンチシズム",
+      "categories": [
+        "A",
+        "B",
+        "C"
+      ],
+      "reading": "ろまんちしずむ",
+      "sortKey": "ろまんちしずむ",
+      "strictSelected": false,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%83%AD%E3%83%9E%E3%83%B3%E3%83%81%E3%82%B7%E3%82%BA%E3%83%A0/1454643208?i=1454643219",
+      "appleMusicTrackId": 1454643219,
+      "appleMusicRelease": "ロマンチシズム - EP",
+      "appleMusicVersion": "ロマンチシズム",
+      "appleMusicReleaseDate": "2019-03-15"
+    },
+    {
+      "id": "mga-131",
+      "title": "Loneliness",
+      "categories": [
+        "A",
+        "B"
+      ],
+      "reading": "ろんりねす",
+      "sortKey": "ろんりねす",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/loneliness/1691229798?i=1691229816",
+      "appleMusicTrackId": 1691229816,
+      "appleMusicRelease": "ANTENNA",
+      "appleMusicVersion": "Loneliness",
+      "appleMusicReleaseDate": "2023-07-04"
+    },
+    {
+      "id": "mga-132",
+      "title": "私",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "わたし",
+      "sortKey": "わたし",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E7%A7%81/1440787736?i=1440788138",
+      "appleMusicTrackId": 1440788138,
+      "appleMusicRelease": "TWELVE",
+      "appleMusicVersion": "私",
+      "appleMusicReleaseDate": "2016-01-13"
+    },
+    {
+      "id": "mga-133",
+      "title": "私は最強",
+      "categories": [
+        "B",
+        "C"
+      ],
+      "reading": "わたしはさいきょう",
+      "sortKey": "わたしはさいきょう",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E7%A7%81%E3%81%AF%E6%9C%80%E5%BC%B7/1648865573?i=1648865581",
+      "appleMusicTrackId": 1648865581,
+      "appleMusicRelease": "Soranji - Single",
+      "appleMusicVersion": "私は最強",
+      "appleMusicReleaseDate": "2022-11-08"
+    },
+    {
+      "id": "mga-134",
+      "title": "あなたに",
+      "categories": [
+        "B",
+        "C",
+        "D"
+      ],
+      "reading": "あなたに",
+      "sortKey": "あなたに",
+      "strictSelected": true,
+      "appleMusicUrl": "https://music.apple.com/jp/album/%E3%81%82%E3%81%AA%E3%81%9F%E3%81%AB/1710693261?i=1710693262",
+      "appleMusicTrackId": 1710693262,
+      "appleMusicRelease": "あなたに - Single",
+      "appleMusicVersion": "あなたに",
+      "appleMusicReleaseDate": "2023-10-25",
+      "note": "MONGOL800のカバー"
+    }
+  ],
+  "excludedSongs": [
+    {
+      "title": "サママ・フェスティバル！",
+      "reading": "さままふぇすてぃばる",
+      "reason": "季節の楽しさと現在の高揚が中心。今回は複層的な解釈より祝祭性が前面に出る曲として外す。"
+    },
+    {
+      "title": "SwitCh",
+      "reading": "すいっち",
+      "reason": "スイッチや魔法の比喩はあるが、日常への直接的な励ましを主軸と判断して外す。"
+    },
+    {
+      "title": "WHOO WHOO WHOO",
+      "reading": "ふーふーふー",
+      "reason": "象徴的なイメージはあるが、今回は歌詞の物語・内省の展開より反復とダンスへの呼びかけを主軸と判断して外す。"
+    },
+    {
+      "title": "InTerLuDe ～白い朝～",
+      "reading": "いんたーりゅーどしろいあさ",
+      "reason": "歌詞のない独立した器楽曲のため、歌詞の文学性を選ぶ対象外。"
+    },
+    {
+      "title": "InsPirATioN",
+      "reading": "いんすぴれーしょん",
+      "reason": "歌詞のない独立した器楽曲のため、歌詞の文学性を選ぶ対象外。"
+    }
+  ]
+}</script>
+<script>
+'use strict';
+const DATA = JSON.parse(document.getElementById('song-data').textContent);
+const CATEGORIES = Object.keys(DATA.categoryDefinitions);
+const selected = new Set();
+
+// ---- あいうえお順（ブラウザの照合順序に依存しない五十音キー） ----
+// 濁点・半濁点・小書き文字は清音と同じ扱い、長音「ー」は直前の母音として並べる。
+// 同じキーになった場合のみ、元のsortKey（清音→濁音→半濁音）、IDの順で決める。
+const VOWELS = 'あいうえお';
+const KANA_ROWS = ['あいうえお','かきくけこ','さしすせそ','たちつてと','なにぬねの','はひふへほ','まみむめも','や　ゆ　よ','らりるれろ','わ　　　を'];
+const VOWEL_OF = new Map();
+KANA_ROWS.forEach(row => [...row].forEach((ch, i) => { if (ch !== '　') VOWEL_OF.set(ch, VOWELS[i]); }));
+const SMALL_KANA = new Map([...'ぁぃぅぇぉっゃゅょゎ'].map((ch, i) => [ch, 'あいうえおつやゆよわ'[i]]));
+function readingKey(text) {
+  let key = '';
+  for (let ch of String(text).normalize('NFD')) {
+    if (ch === '\u3099' || ch === '\u309A') continue;
+    const code = ch.codePointAt(0);
+    if (code >= 0x30A1 && code <= 0x30F6) ch = String.fromCodePoint(code - 0x60);
+    ch = SMALL_KANA.get(ch) || ch;
+    if (ch === 'ー') ch = VOWEL_OF.get(key.slice(-1)) || '';
+    if (/[\s・･]/.test(ch)) continue;
+    key += ch;
+  }
+  return key;
+}
+const compareText = (a, b) => (a < b ? -1 : a > b ? 1 : 0);
+const sortedSongs = DATA.songs
+  .map(song => ({ song, key: readingKey(song.sortKey) }))
+  .sort((a, b) => compareText(a.key, b.key) || compareText(a.song.sortKey, b.song.sortKey) || compareText(a.song.id, b.song.id))
+  .map(entry => entry.song);
+
+// 未選択=0曲、1〜3選択=AND、4選択=全曲。フィルタ後も読み順を維持。
+function getVisibleSongs(selection) {
+  if (selection.size === 0) return [];
+  if (selection.size === CATEGORIES.length) return sortedSongs;
+  return sortedSongs.filter(song => [...selection].every(category => song.categories.includes(category)));
+}
+
+// ---- 表示中の曲を再生（iPhoneのショートカット連携） ----
+const SHORTCUT_NAME = 'ミセスキュー追加';
+const NOT_STREAMABLE = new Set(['mga-127']);
+function getTrackId(song) {
+  try {
+    const id = new URL(song.appleMusicUrl).searchParams.get('i') || String(song.appleMusicTrackId || '');
+    return /^\d+$/.test(id) ? id : '';
+  } catch (error) { return ''; }
+}
+function getQueueSongs() {
+  return getVisibleSongs(selected).filter(song => !NOT_STREAMABLE.has(song.id) && getTrackId(song));
+}
+// 1行1製品ID。表示順を保ち、クリップボードを経由せず直接渡す。
+function buildQueueText(songs) { return songs.map(getTrackId).join('\n'); }
+function buildShortcutUrl(text) {
+  return `shortcuts://run-shortcut?name=${encodeURIComponent(SHORTCUT_NAME)}&input=text&text=${encodeURIComponent(text)}`;
+}
+function addToQueue() {
+  const songs = getQueueSongs();
+  if (songs.length === 0) return;
+  const skipped = getVisibleSongs(selected).length - songs.length;
+  els.queueStatus.textContent = `${songs.length}曲の再生用にショートカット「${SHORTCUT_NAME}」を開きます。` + (skipped ? `対象外の${skipped}曲は除外しています。` : '') + '曲数が多いと検索に時間がかかります。切り替わらないときは「初回の準備」を確認してください。';
+  location.href = buildShortcutUrl(buildQueueText(songs));
+}
+
+const els = {
+  queue: document.getElementById('queue'),
+  queueStatus: document.getElementById('queue-status'),
+  count: document.getElementById('count'),
+  mode: document.getElementById('mode'),
+  empty: document.getElementById('empty'),
+  songs: document.getElementById('songs'),
+  filters: document.getElementById('filters'),
+  reset: document.getElementById('reset')
+};
+
+function render() {
+  const visible = getVisibleSongs(selected);
+  els.count.textContent = `${visible.length}曲`;
+  els.mode.textContent = selected.size === 0
+    ? '未選択'
+    : selected.size === CATEGORIES.length
+      ? '推薦対象の全曲 · あいうえお順'
+      : `${CATEGORIES.filter(c => selected.has(c)).join(' + ')} のすべてに該当 · あいうえお順`;
+  const queueCount = getQueueSongs().length;
+  els.queue.disabled = queueCount === 0;
+  els.queue.textContent = queueCount === 0 ? '表示中の曲を再生' : `表示中の${queueCount}曲を再生`;
+  els.queueStatus.textContent = '';
+  els.empty.hidden = visible.length > 0;
+  els.empty.textContent = selected.size === 0 ? 'A〜Dから分類を選んでください。' : 'この組み合わせに該当する曲はありません。';
+  els.filters.querySelectorAll('.filter').forEach(button => button.setAttribute('aria-pressed', String(selected.has(button.dataset.category))));
+
+  const fragment = document.createDocumentFragment();
+  for (const song of visible) {
+    const row = document.createElement('li');
+    row.className = 'song';
+    row.dataset.songId = song.id;
+
+    const info = document.createElement('div');
+    info.className = 'song-info';
+    const title = document.createElement('p');
+    title.className = 'song-title';
+    title.textContent = song.title;
+    title.title = `読み：${song.reading}`;
+    const tags = document.createElement('div');
+    tags.className = 'tags';
+    for (const category of song.categories) {
+      const tag = document.createElement('span');
+      tag.className = 'tag';
+      tag.dataset.category = category;
+      tag.textContent = category;
+      tag.title = DATA.categoryDefinitions[category];
+      tag.setAttribute('aria-label', `${category}：${DATA.categoryDefinitions[category]}`);
+      tags.append(tag);
+    }
+    info.append(title, tags);
+    if (song.note) {
+      const note = document.createElement('p');
+      note.className = 'song-note';
+      note.textContent = song.note;
+      info.append(note);
+    }
+
+    const link = document.createElement('a');
+    link.className = 'play';
+    link.textContent = '▶';
+    link.href = song.appleMusicUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.setAttribute('aria-label', `${song.title}をApple Musicで開く`);
+    link.title = 'Apple Musicで開く';
+
+    row.append(info, link);
+    fragment.append(row);
+  }
+  els.songs.replaceChildren(fragment);
+}
+
+for (const category of CATEGORIES) {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'filter';
+  button.dataset.category = category;
+  button.setAttribute('aria-pressed', 'false');
+
+  const top = document.createElement('span');
+  top.className = 'top';
+  const letter = document.createElement('span');
+  letter.className = 'letter';
+  letter.textContent = category;
+  letter.setAttribute('aria-hidden', 'true');
+  const mark = document.createElement('span');
+  mark.className = 'mark';
+  mark.setAttribute('aria-hidden', 'true');
+  top.append(letter, mark);
+
+  const label = document.createElement('span');
+  label.className = 'label';
+  label.textContent = DATA.categoryDefinitions[category];
+
+  button.setAttribute('aria-label', `${category}：${DATA.categoryDefinitions[category]}`);
+  button.append(top, label);
+  button.addEventListener('click', () => {
+    selected.has(category) ? selected.delete(category) : selected.add(category);
+    render();
+  });
+  els.filters.append(button);
+}
+els.queue.addEventListener('click', addToQueue);
+els.reset.addEventListener('click', () => { selected.clear(); render(); });
+render();
+</script>
+</body>
+</html>
